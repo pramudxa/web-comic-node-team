@@ -15,14 +15,21 @@
 
     <!--Internal CSS-->
     <!-- <link rel="stylesheet" href="../CSS/style.css" /> -->
-    <title>Comac Comic</title>
+    <title><%= title %></title>
     <style>
       body{
         background-color: rgb(40,45,50);
+        height: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+
+      .recommend{
+        overflow-x: auto;
       }
     </style>
   </head>
-  <body>
+  <body class="">
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid d-flex align-items-center">
@@ -48,61 +55,30 @@
     </nav>
     <!--Navbar-->
 
-    <div class="content mt-3 float-start">
-      <div class="container mx-5 d-flex flex-column">
-        <p class="text-light mb-1">Recommended</p>
-        <div class="container recommend d-flex flex-row mt-2">
-      
-          <div class="card bg-secondary me-3" style="width: 18rem;">
-            <img src="comic/solo-leveling/poster.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Solo Leveling</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="d-flex justify-content-between">
-                <a href="#" class="btn btn-primary">Read First</a>
-                <a href="#" class="btn btn-primary">Details</a>
-              </div>
+    <div class="container-fluid mt-3">
+      <p class="text-light d-block ms-5">Recommended</p>
+      <!-- Recommend -->
+      <div class="recommend d-flex flex-row my-3 flex-nowrap">
+        <!-- looping data -->
+        <% for(let i = 1; i <= 10; i++){ %>
+        <% comics.forEach( (comic)=>{ %>
+        <div class="card bg-secondary ms-3" style="min-width: 18rem;">
+          <img src="<%=comic.comicPoster%>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= comic.comicTitle %></h5>
+            <p class="card-text"><%= comic.comicDesc %> </p>
+            <div class="d-flex justify-content-between">
+              <a href="#" class="btn btn-primary">Read First</a>
+              <a href="#" class="btn btn-primary">Details</a>
             </div>
           </div>
-        
-          <div class="card bg-secondary me-3" style="width: 18rem;">
-            <img src="comic/solo-leveling/poster.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Solo Leveling</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="d-flex justify-content-between">
-                <a href="#" class="btn btn-primary">Read First</a>
-                <a href="#" class="btn btn-primary">Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card bg-secondary me-3" style="width: 18rem;">
-            <img src="comic/solo-leveling/poster.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Solo Leveling</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="d-flex justify-content-between">
-                <a href="#" class="btn btn-primary">Read First</a>
-                <a href="#" class="btn btn-primary">Details</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="card bg-secondary me-3" style="width: 18rem;">
-            <img src="comic/solo-leveling/poster.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Solo Leveling</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <div class="d-flex justify-content-between">
-                <a href="#" class="btn btn-primary">Read First</a>
-                <a href="#" class="btn btn-primary">Details</a>
-              </div>
-            </div>
-          </div>
-
         </div>
+        <%})%>
+        <%}%>
+        <!---->
       </div>
+      <!-- end of recommend -->
+
     </div>
 
     <script
